@@ -3,7 +3,7 @@ import { Star } from 'lucide-react'; // Importe l'icône étoile
 
 function App() {
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <><div className="min-h-screen bg-neutral-50">
       <header className="bg-primary text-white p-4 text-center">
         <h2 className="text-xl">Bienvenue chez Votre Épicerie</h2>
       </header>
@@ -69,13 +69,36 @@ function App() {
         </section>
 
         {/* Formulaire Newsletter */}
+        <section id="newsletter" className="py-10">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Inscrivez-vous à notre newsletter</h2>
+            <form className="max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Votre email"
+                className="w-full p-3 border border-gray-300 rounded mb-4" />
+              <button type="submit" className="bg-primary text-white px-6 py-3 rounded hover:bg-opacity-90">
+                S'inscrire
+              </button>
+            </form>
+          </div>
+        </section>
         {/* Infos Pratiques */}
+        <section id="infos-pratiques" className="py-10 bg-neutral-100">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Infos Pratiques</h2>
+            <p className="mb-2">Adresse : 2 chemin du rivage,13620 Carry le Rouet</p>
+            <p className="mb-2">Horaires : Lun-Sam 7h30-20h45 Dim 9h-20h45</p>
+            <p>Téléphone : 04 42 45 01 44</p>
+          </div>
+        </section>
         {/* Autres sections iront ici */}
       </main>
       <footer className="bg-neutral-200 p-4 text-center">
         <p>© 2025 Votre Épicerie - Tous droits réservés</p>
       </footer>
     </div>
+    </>
   );
 }
 
