@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter Magasin</title>
+  <style>
+    /* CSS inline pour email */
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+    .container { max-width: 600px; margin: 0 auto; background: white; }
+    .header { background: #22c55e; color: white; padding: 20px; text-align: center; }
+    .promotion { padding: 10px; border-bottom: 1px solid #ddd; }
+    .badge { background: linear-gradient(to right, red, orange); color: white; padding: 5px; border-radius: 5px; }
+    /* Responsive */
+    @media screen and (max-width: 600px) { .container { width: 100% !important; } }
+  </style>
+</head>
+<body>
+  <table class="container" width="100%" cellpadding="0" cellspacing="0">
+    <tr><td class="header"><h1>Nos Offres Spéciales !</h1></td></tr>
+    <tr><td class="promotion">
+      <img src="image-promotion.jpg" alt="Produit" style="max-width:100%;">
+      <h2>Promotion : Fruits frais</h2>
+      <span class="badge">-20%</span>
+      <p>Prix : <del>5€</del> 4€</p>
+    </td></tr>
+    <!-- Section conseils/recettes -->
+    <tr><td><h2>Conseils : Recette du mois</h2><p>...</p></td></tr>
+    <!-- Programme fidélité -->
+    <tr><td><h2>Fidélité : Gagnez des points !</h2><p>...</p></td></tr>
+    <!-- Infos pratiques/événements -->
+    <tr><td><h2>Événements : Venez nous voir !</h2><p>...</p></td></tr>
+    <tr><td style="background: #f4f4f4; padding: 20px; text-align: center;">
+      <p>Informations légales | <a href="[LIEN_DESINSCRIPTION]">Se désinscrire</a></p>
+    </td></tr>
+  </table>
+</body>
+</html>
