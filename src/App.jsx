@@ -1,7 +1,28 @@
 // Importe composants Shadcn et Lucide au besoin
 import { Star } from 'lucide-react'; // Importe l'icône étoile
+import React, { useState } from 'react';
 
 function App() {
+  const [email, setEmail] = useState('');
+  const [prenom, setPrenom] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage('');
+    try {
+      const res = await fetch('http://localhost:3001/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, prenom }),
+      });
+      const data = await res.json();
+      setMessage(data.message || data.error);
+    } catch {
+      setMessage('Erreur de connexion au serveur');
+    }
+  };
+
   return (
     <><div className="min-h-screen bg-neutral-50">
       <header className="bg-primary text-white p-4 text-center">
@@ -72,15 +93,28 @@ function App() {
         <section id="newsletter" className="py-10">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Inscrivez-vous à notre newsletter</h2>
-            <form className="max-w-md mx-auto">
+            <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
               <input
                 type="email"
                 placeholder="Votre email"
-                className="w-full p-3 border border-gray-300 rounded mb-4" />
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+                className="w-full p-3 border border-gray-300 rounded mb-4"
+              />
+              <input
+                type="text"
+                placeholder="Votre prénom"
+                value={prenom}
+                onChange={e => setPrenom(e.target.value)}
+                required
+                className="w-full p-3 border border-gray-300 rounded mb-4"
+              />
               <button type="submit" className="bg-primary text-white px-6 py-3 rounded hover:bg-opacity-90">
                 S'inscrire
               </button>
             </form>
+            {message && <p className="mt-4 text-red-500">{message}</p>}
           </div>
         </section>
         {/* Infos Pratiques */}
